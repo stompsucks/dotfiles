@@ -24,6 +24,9 @@ unsetopt beep nomatch
 export NCURSES_NO_UTF8_ACS=1
 export PROMPT=$'%{\e[7m%} %{\e[0m%} %n@%m %B%(!.#.>)%b '
 export CLICOLOR=1
+if [ ! $LS_COLORS ] && [ -e ~/dotfiles/dircolors ]; then
+    eval "$(dircolors ~/dotfiles/dircolors)"
+fi
 
 function parse_git_branch () {
 	git branch 2> /dev/null | grep "*" | sed -e 's/* \(.*\)/ (\1)/g'
@@ -46,7 +49,6 @@ function chpwd() {
 	fi
 }
 
-alias activate='source env/bin/activate'
 alias grep='grep --color=auto'
 
 if [[ `uname` == "Linux" ]] then
