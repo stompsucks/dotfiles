@@ -21,8 +21,6 @@ setopt autocd
 unsetopt beep nomatch
 # End of lines configured by zsh-newuser-install
 
-eval `dircolors ~/.dir_colors`
-
 export NCURSES_NO_UTF8_ACS=1
 export PROMPT=$'%{\e[7m%} %{\e[0m%} %n@%m %B%(!.#.>)%b '
 
