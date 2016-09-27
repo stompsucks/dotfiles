@@ -50,7 +50,7 @@ function chpwd() {
 	if [ ! $VIRTUAL_ENV ] && [ -e ./env/bin/activate ]; then
 		source ./env/bin/activate
 	fi
-	if [ $VIRTUAL_ENV ] && [[ `pwd` != `dirname $VIRTUAL_ENV`* ]]; then
+	if [ $VIRTUAL_ENV ] && [[ `pwd -P` != `dirname $VIRTUAL_ENV`* ]]; then
 		deactivate
 	fi
 }
