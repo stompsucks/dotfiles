@@ -21,8 +21,9 @@ setopt autocd
 unsetopt beep nomatch
 # End of lines configured by zsh-newuser-install
 
+autoload -Uz colors && colors
 export NCURSES_NO_UTF8_ACS=1
-export PROMPT=$'%{\e[7m%} %{\e[0m%} %n@%m %B%(!.#.>)%b '
+export PROMPT="%K{white} %k %F{white}%n@%m %B%(!.#.>)%f%b "
 export CLICOLOR=1
 if [ ! $LS_COLORS ] && [ -e ~/dotfiles/dircolors ]; then
     eval "$(dircolors ~/dotfiles/dircolors)"
@@ -34,6 +35,11 @@ function parse_git_branch () {
 
 function precmd() {
 	export RPROMPT="%~$(parse_git_branch)"
+    print -Pn "\e]0;%n@%m\a"
+}
+
+function preexec() {
+    print -Pn "\e]0;%n@%m > $2\a"
 }
 
 function csv() {
