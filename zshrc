@@ -61,6 +61,6 @@ if [[ `uname` == "Linux" ]] then
     alias ls='ls --color'
 fi
 
-alias ll='ls -alF'
+alias ll='ls -alhF'
 alias la='ls -a'
 
