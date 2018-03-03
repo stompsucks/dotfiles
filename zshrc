@@ -58,7 +58,7 @@ function chpwd() {
 alias grep='grep --color=auto'
 
 if [[ `uname` == "Linux" ]] then
-    alias ls='ls --color'
+    alias ls='ls --color=auto'
 fi
 
 alias ll='ls -alhF'
