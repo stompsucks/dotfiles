@@ -58,10 +58,10 @@ function csv() {
 }
 
 if [[ `uname` == "Linux" ]] then
-    alias ls='ls --color=auto'
+    alias ls='ls --color=auto --time-style=iso'
 fi
 alias grep='grep --color=auto'
-alias ll='ls -lhF --time-style=iso'
+alias ll='ls -lhF'
 alias la='ls -a'
 
 
