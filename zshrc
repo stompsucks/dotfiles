@@ -22,7 +22,7 @@ unsetopt beep nomatch
 autoload -Uz colors && colors
 export NCURSES_NO_UTF8_ACS=1
 export CLICOLOR=1
-if [ ! $LS_COLORS ] && [ -e ~/dotfiles/dircolors ]; then
+if [ ! $LS_COLORS ] && [ -e ~/dotfiles/dircolors ] && [ ! type dircolors &> /dev/null ]; then
     eval "$(dircolors ~/dotfiles/dircolors)"
 fi
 
