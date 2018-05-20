@@ -64,3 +64,5 @@ fi
 alias ll='ls -alF'
 alias la='ls -a'
 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
