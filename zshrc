@@ -21,6 +21,7 @@ unsetopt beep nomatch
 
 autoload -Uz colors && colors
 export NCURSES_NO_UTF8_ACS=1
+export PROMPT="%K{white} %k %F{white}%n@%M %B%(!.#.>)%f%b "
 export CLICOLOR=1
 if [ ! $LS_COLORS ] && [ -e ~/dotfiles/dircolors ] && [ ! type dircolors &> /dev/null ]; then
     eval "$(dircolors ~/dotfiles/dircolors)"
@@ -47,8 +48,12 @@ function inside_virtual_env () {
 }
 
 function precmd() {
-	export RPROMPT="%~$(parse_git_branch)"
-	export PROMPT="%K{white}%F{black}$(inside_virtual_env)%f%k %F{white}%n@%m %B%(!.#.›)%b%f "
+    export RPROMPT="%~$(parse_git_branch)"
+    print -Pn "\e]0;%n@%M\a"
+}
+
+function preexec() {
+    print -Pn "\e]0;%n@%M > $2\a"
 }
 
 # Aliases
