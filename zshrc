@@ -19,8 +19,8 @@ unsetopt beep nomatch
 
 # Clumsily hacked-together settings that probably don't work
 
-if [ -e ~/.dircolors ] && [ ! type dircolors &> /dev/null ]; then
-    eval "$(dircolors ~/.dircolors)"
+if [ -e ~/.dircolors ] && [ -x $(command -v dircolors) ]; then
+    eval $(dircolors ~/.dircolors)
 fi
 
 export GREP_COLOR=auto
