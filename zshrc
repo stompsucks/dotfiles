@@ -25,6 +25,7 @@ fi
 
 export GREP_COLOR=auto
 export TIME_STYLE=iso
+export FLASK_ENV=development
 export PROMPT="%K{white} %k %F{white}%n@%M %B%(!.#.>)%f%b "
 
 if [ -d /opt/homebrew ]; then
