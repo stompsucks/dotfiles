@@ -23,7 +23,6 @@ if [ -e ~/.dircolors ] && [ -x $(command -v dircolors) ]; then
     eval $(dircolors ~/.dircolors)
 fi
 
-export GREP_COLOR=auto
 export TIME_STYLE=iso
 export FLASK_ENV=development
 export PROMPT="%K{white} %k %F{white}%n@%M %B%(!.#.>)%f%b "
@@ -36,6 +35,7 @@ alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -lhF'
 alias lla='ll -a'
+alias grep='grep --color=auto'
 
 if [ -d ~/.pyenv ]; then
 	export PYENV_ROOT="$HOME/.pyenv"
