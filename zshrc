@@ -35,8 +35,8 @@ if [ -e ~/.dircolors ] && [ -x $(command -v dircolors) ]; then
 fi
 
 alias ls='ls --color=auto'
-alias la='ls -a'
-alias ll='ls -alhF'
+alias la='ls -Av'
+alias ll='la -lh'
 alias grep='grep --color=auto'
 
 if [ -d ~/.pyenv ]; then
