@@ -19,7 +19,7 @@ unsetopt beep nomatch
 
 # Clumsily hacked-together settings that probably don't work
 
-if [ ! $LS_COLORS ] && [ -e ~/.dircolors ] && [ ! type dircolors &> /dev/null ]; then
+if [ -e ~/.dircolors ] && [ ! type dircolors &> /dev/null ]; then
     eval "$(dircolors ~/.dircolors)"
 fi
 
