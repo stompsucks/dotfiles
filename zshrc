@@ -36,8 +36,7 @@ fi
 
 alias ls='ls --color=auto'
 alias la='ls -a'
-alias ll='ls -lhF'
-alias lla='ll -a'
+alias ll='ls -alhF'
 alias grep='grep --color=auto'
 
 if [ -d ~/.pyenv ]; then
