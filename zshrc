@@ -19,16 +19,19 @@ unsetopt beep nomatch
 
 # Clumsily hacked-together settings that probably don't work
 
-if [ -e ~/.dircolors ] && [ -x $(command -v dircolors) ]; then
-    eval $(dircolors ~/.dircolors)
-fi
-
 export TIME_STYLE=iso
 export FLASK_ENV=development
 export PROMPT="%K{white} %k %F{white}%n@%M %B%(!.#.>)%f%b "
 
 if [ -d /opt/homebrew ]; then
-	export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:$PATH"
+	PATH="/opt/homebrew/bin:$PATH"
+	PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+	PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+	export PATH
+fi
+
+if [ -e ~/.dircolors ] && [ -x $(command -v dircolors) ]; then
+    eval "$(dircolors ~/.dircolors)"
 fi
 
 alias ls='ls --color=auto'
@@ -41,6 +44,8 @@ if [ -d ~/.pyenv ]; then
 	export PYENV_ROOT="$HOME/.pyenv"
 	export PATH="$PYENV_ROOT/bin:$PATH"
 	export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+	export PYENV_VIRTUALENV_VERBOSE_ACTIVATE=1
+	eval "$(pyenv init -)"
 	eval "$(pyenv init --path)"
 	eval "$(pyenv virtualenv-init -)"
 fi
